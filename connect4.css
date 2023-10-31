@@ -31,3 +31,8 @@ margin: 0 auto;
 .yellow-piece {
     background-color: yellow;
 }
+
+#winner {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
