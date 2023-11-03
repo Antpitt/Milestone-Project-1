@@ -1,19 +1,27 @@
+
+//players of the game
 var playerRed = "R";
 var playerYellow = "Y";
 
+//determines who is the current player
 var currentPlayer = playerYellow;
 
 var gameOver = false;
+
 var board;
-var currentColumns
+
+var currentColumns;
 
 var rows = 6;
 var columns = 7;
 
+
+//board load on window load
 window.onload = function (){
     setGame()
 }
 
+//setting board for the game
 function setGame(){
     board =[];
     currentColumns = [5, 5, 5, 5, 5, 5, 5];
@@ -69,7 +77,7 @@ board[r][c] = currentPlayer;
 
 
 function checkWinner() {
-    //horixontlll
+    //horizontal check winner
 
     for (let r = 0; r < rows; r++){
         for(let c = 0; c < columns - 3; c++){
@@ -82,7 +90,7 @@ function checkWinner() {
             }
         }
     }
-//vert
+//vert check winner
     for (let c = 0; c < columns; c++){
         for(let r = 0; r < rows-3; r++){
             if(board[r][c] != ' '){
@@ -96,7 +104,7 @@ function checkWinner() {
     }
 
  
-//antidiag
+//antidiag check winner
 for (let r = 0; r < rows-3; r++){
     for (let c=0; c < columns-3; c++){
         if (board[r][c] != ' ') {
@@ -111,7 +119,7 @@ for (let r = 0; r < rows-3; r++){
 }
 
 
-//diagnoal check
+//diagnoal check for winner
 for (let r = 3; r < rows; r++){
     for (let c=0; c < columns-3; c++){
         if (board[r][c] != ' ') {
@@ -129,7 +137,7 @@ for (let r = 3; r < rows; r++){
 
 }
 
-
+//determines winner of the game
 function setWinner(r, c){
     let winner = document.getElementById("winner");
     if(board[r][c] == playerRed) {
@@ -139,4 +147,14 @@ function setWinner(r, c){
     }
 
     gameOver =true;
+    console.log("gameOver")
 }
+
+//changes scoreboard
+
+
+
+
+//resets game once a winner is determined
+
+
