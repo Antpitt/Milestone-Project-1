@@ -21,6 +21,14 @@ var yellowScore = 0;
 //board load on window load
 window.onload = function (){
     setGame()
+    const resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener("click", () => {
+        board =[];
+        currentColumns = [5, 5, 5, 5, 5, 5, 5];
+        checkWinner.forEach(tile => {
+            tile.classList.remove("yellow-piece", "red-piece");
+        });
+    });
 }
 
 //setting board for the game
@@ -50,9 +58,9 @@ function setGame(){
 
 function setPiece(){
 if (gameOver) {
-    return
+    return;
 }
-
+// code used from  Title: Connect 4 * Author:(Kenny, Yip) * Date: (2022) * Code version:(v1) * Availability: (https://github.com/ImKennyYip/Connect4/tree/master)
 let coords = this.id.split("-");
 let r = parseInt(coords[0]);
 let c = parseInt(coords[1]);
@@ -163,13 +171,6 @@ function setWinner(r, c){
 
 
 //resets game
-
-const resetButton = document.getElementById("reset-button");
-
-resetButton.addEventListener("click", () => {
-    console.log("reset board");
-
-});
 
 
 
