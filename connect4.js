@@ -155,17 +155,26 @@ function setWinner(r, c){
     }
 
     gameOver =true;
-    console.log("gameOver")
+    console.log("gameOver");
 
     document.getElementById("red-score").innerText = redScore;
     document.getElementById("yellow-score").innerText = yellowScore;
 }
 
 
+//resets game
+
+const restartButton = document.getElementById("restart-button");
+
+restartButton.addEventListener("click", () => {
+    console.log("restart");
+
+});
 
 
 
 
-//resets game once a winner is determined
+
+
 
 
