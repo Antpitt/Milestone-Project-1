@@ -164,10 +164,10 @@ function setWinner(r, c){
 
 //resets game
 
-const restartButton = document.getElementById("restart-button");
+const resetButton = document.getElementById("reset-button");
 
-restartButton.addEventListener("click", () => {
-    console.log("restart");
+resetButton.addEventListener("click", () => {
+    console.log("reset board");
 
 });
 
