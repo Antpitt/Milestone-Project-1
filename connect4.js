@@ -15,6 +15,8 @@ var currentColumns;
 var rows = 6;
 var columns = 7;
 
+var redScore = 0;
+var yellowScore = 0;
 
 //board load on window load
 window.onload = function (){
@@ -27,8 +29,9 @@ function setGame(){
     currentColumns = [5, 5, 5, 5, 5, 5, 5];
 
 
-    for(let r = 0; r < rows; r++){
-        let row = []
+        for(let r = 0; r < rows; r++){
+        let row = [];
+    
         for(let c = 0; c < columns; c++){
         row.push(' ');
 
@@ -39,6 +42,7 @@ function setGame(){
         document.getElementById("board").append(tile)
 
         }
+        
         board.push(row);
     
     }
@@ -75,10 +79,11 @@ board[r][c] = currentPlayer;
     checkWinner()
 }
 
-
+// code used from  Title: Connect 4 * Author:(Kenny, Yip) * Date: (2022) * Code version:(v1) * Availability: (https://github.com/ImKennyYip/Connect4/tree/master)
 function checkWinner() {
     //horizontal check winner
 
+    
     for (let r = 0; r < rows; r++){
         for(let c = 0; c < columns - 3; c++){
             if(board[r][c] != ' '){
@@ -91,6 +96,7 @@ function checkWinner() {
         }
     }
 //vert check winner
+    
     for (let c = 0; c < columns; c++){
         for(let r = 0; r < rows-3; r++){
             if(board[r][c] != ' '){
@@ -105,10 +111,10 @@ function checkWinner() {
 
  
 //antidiag check winner
-for (let r = 0; r < rows-3; r++){
-    for (let c=0; c < columns-3; c++){
-        if (board[r][c] != ' ') {
-            if(board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board [r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]){
+    for (let r = 0; r < rows-3; r++){
+        for (let c=0; c < columns-3; c++){
+            if (board[r][c] != ' ') {
+                if(board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board [r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]){
                     
                 setWinner(r, c);
                 return;
@@ -120,10 +126,10 @@ for (let r = 0; r < rows-3; r++){
 
 
 //diagnoal check for winner
-for (let r = 3; r < rows; r++){
-    for (let c=0; c < columns-3; c++){
-        if (board[r][c] != ' ') {
-            if(board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board [r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]){
+    for (let r = 3; r < rows; r++){
+        for (let c=0; c < columns-3; c++){
+            if (board[r][c] != ' ') {
+                if(board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board [r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]){
                     
                 setWinner(r, c);
                 return;
@@ -142,15 +148,20 @@ function setWinner(r, c){
     let winner = document.getElementById("winner");
     if(board[r][c] == playerRed) {
         winner.innerText = "Red Wins";
+        redScore += 1;
     }  else {
         winner.innerText = "Yellow Wins";
+        yellowScore += 1;
     }
 
     gameOver =true;
     console.log("gameOver")
+
+    document.getElementById("red-score").innerText = redScore;
+    document.getElementById("yellow-score").innerText = yellowScore;
 }
 
-//changes scoreboard
+
 
 
 

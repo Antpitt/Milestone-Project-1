@@ -4,18 +4,19 @@ h1 {
 }
 
 #board {
-height: 540px;
-width: 630px;
-
-background-color: blue;
-border: 10px solid navy;
-display: flex;
-flex-wrap: wrap;
-margin: 0 auto;
+    
+    height: 540px;
+    width: 630px;
+    background-color: blue;
+    border: 10px solid navy;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 
 }
 
 .tile {
+   
     height: 70px;
     width: 70px;
     background-color: white;
@@ -47,8 +48,6 @@ margin: 0 auto;
     font-size: 30px;
     display: flex;
     justify-content: space-around;
-
-
 }
 
 
