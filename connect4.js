@@ -25,7 +25,7 @@ window.onload = function (){
     resetButton.addEventListener("click", () => {
         board =[];
         currentColumns = [5, 5, 5, 5, 5, 5, 5];
-        checkWinner.forEach(tile => {
+        board[r][c].forEach(tile => {
             tile.classList.remove("yellow-piece", "red-piece");
         });
     });
@@ -36,18 +36,18 @@ function setGame(){
     board =[];
     currentColumns = [5, 5, 5, 5, 5, 5, 5];
 
-
+//determines position of certain tile
         for(let r = 0; r < rows; r++){
         let row = [];
     
         for(let c = 0; c < columns; c++){
         row.push(' ');
-
+// add div in html
         let tile = document.createElement('div');
         tile.id = r.toString() + "-" + c.toString();
         tile.classList.add("tile");
-        tile.addEventListener("click", setPiece)
-        document.getElementById("board").append(tile)
+        tile.addEventListener("click", setPiece);
+        document.getElementById("board").append(tile);
 
         }
         
@@ -61,7 +61,7 @@ if (gameOver) {
     return;
 }
 // code used from  Title: Connect 4 * Author:(Kenny, Yip) * Date: (2022) * Code version:(v1) * Availability: (https://github.com/ImKennyYip/Connect4/tree/master)
-let coords = this.id.split("-");
+let coords = this.id.split("-"); //put r and c in an array
 let r = parseInt(coords[0]);
 let c = parseInt(coords[1]);
 r = currentColumns[c];
